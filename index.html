@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Sales Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAEc8ixyY8p9g8UBbPf23i_WSsSr4eA_hFcH95L6KiaNqNCVuIk3MU2KKqVOTbCWNIlOE4GM9tI8KZMhU&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
+    <style>
+        :root {
+            --primary: #b463ff;
+            --primary-transparent: rgba(108, 99, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+     font-family: "Montserrat", sans-serif;
+            color: white;
+        }
+
+        body {
+            background: #000;
+           
+        }
+
+
+        section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blurred-bg {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-transparent);
+            filter: blur(80px);
+            z-index: -1;
+        }
+
+        /* First Section Styles */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-header {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        .video-container {
+            width: 730px;
+            max-width: 90%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem 0;
+            /* border: 6px solid var(--primary); */
+            box-shadow: 0px 0px 5px var(--primary);
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
+
+        .cta-btn {
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+            background: var(--primary);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px var(--primary-transparent);
+        
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px var(--primary-transparent);
+        }
+
+        /* Second Section */
+        .features {
+            display: flex;
+            gap: 12rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+           
+        }
+
+        .features img {
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .features-list {
+            list-style-type: disc;
+            font-size: 1.6rem;
+            line-height: 2.5;
+        }
+
+        /* Third Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .dropdown-item {
+            background: #11111100;
+            margin: 1rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 0px;
+            box-shadow: 0px 0px 7.7px var(--primary);
+           
+            
+        }
+
+        .dropdown-trigger {
+            width: 100%;
+            padding: 1.5rem;
+            background: transparent;
+          border: 0px;
+            box-shadow: 0px 0px 3.7px var(--primary);
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            padding-right: 40px;
+            padding-left: 20px;
+        }
+    
+
+        .dropdown-trigger::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 37%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            border: 3px solid rgb(255, 255, 255);
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .active .dropdown-trigger::after {
+            transform: rotate(-135deg) translateY(50%);
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.5rem;
+            
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .active .dropdown-content {
+            max-height: 200px;
+            padding: 1.5rem;
+        }
+
+        /* New Fourth Section */
+        .value-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 3rem 0;
+        }
+
+        .checklist li {
+            padding: 1rem 0;
+            position: relative;
+            padding-left: 35px;
+            text-align: left;
+            font-size: 1.2rem;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            gap: .4rem;
+            margin: 3rem 0;
+            font-size: 1.5rem;
+            flex-direction: column;
+
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #666;
+        }
+
+        .idk{
+            font-size: .4em;
+        }
+        h1{
+            line-height: 40px;
+        }
+
+        .sale-price-span{
+  color: green;
+        }
+        .old-price{
+
+        }
+
+        .value{
+color: grey;
+        }
+li{
+    list-style: none;
+}
+        .bonus{
+            background-color: rgba(218, 165, 32, 0);
+            border: 0px;
+            font-weight: bold;
+            font-style: italic;
+            box-shadow: 0px 0px 7.7px gold;
+           
+        }
+        .alert{
+            color: rgb(255, 105, 105);
+        }
+    </style>
+</head>
+<body>  <div class="blurred-bg" style="top: -100px; right: -100px; position: fixed;"></div>
+    <!-- Section 1 -->
+    <section class="hero">
+       
+        <h1> <span class="alert">On Pre-Sale</span> <br> <span class="idk">  Lock Your Price in Now</span>
+          
+        </h1>
+        <div class="hero-text">
+            <h2 class="hero-header">Transform Your Life Today With a Revolutionary Program</h2>
+            <p>The Aesthetic Fighter's Blueprint is Currently on Pre-sale for the first few people to join ,<br> which means you can get it for half the price right now ,
+            its still being made <br> but when its finished the price is going to double , lock in your price now</p>
+        </div>
+        
+        <div class="video-container">
+            
+            <div style="position:relative;padding-top:56.25%;">
+  <iframe src="https://www.loom.com/embed/1192b5e16d8c4a0b9362ad61a05ed617"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;">
+  </iframe>
+</div>
+
+        </div>
+        
+        <a href="payment.html" class="cta-btn cta-button">Pre Order Now</a>
+    </section>
+
+    <style>
+        .features-lis li{
+            line-height: 30px;
+            max-width: 400px;
+        }
+    </style>
+
+    <!-- Section 2 -->  <div class="blurred-bg" style="bottom: -100px; left: -100px; position: fixed;"></div>
+    <section>
+       
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.67em;">My Story</h2>
+        <div class="features">
+            <img src="img.jpg" alt="Feature image">
+            <ul class="features-list features-lis">
+                <li>I Was scared that if i focus on getting a physique that women wanted that i would slow my fighting progress </li>
+                <li>or if i truly focused on fighting i wouldn't be able to gain weight</li>
+                <li>i kept locking in and out on each one , and i made 0 progress in both </li>
+                <li>i looked nothing like a man tbh , and i wondered my family wouldn't take me seriously</li>
+                <li>not even girls would talk to me</li>
+                <li>i didn't realize that the solution is simplier than you could ever imagine, <br>
+                  and that's what i'm offering you for the price of your trainers
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="faq-section">
+        <h3 style="text-align: center; margin-bottom: 3rem;"> <span style="font-size: 2.67em;" class="h">Curriculm </span> <p>Have a Look Inside The Course</p> </h3>
+        <div class="dropdown-wrapper">
+
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 1 | What It Actually Takes to Get Jacked</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>Why 97% of fighters fail to get jacked (and how to be the 3% that girls chase)</li>
+                        <li>The naked truth: Why your current routine makes you invisible to women</li>
+                        <li>Pick the right program or stay a "skinny fighter" forever</li>
+                        <li>Why this is your LAST CHANCE to build a physique that demands respect</li>
+                        <li>How getting jacked will change how girls/coaches/friends treat you (overnight)</li>
+                     
+                    </ul></p>
+                </div>
+            </div>
+            
+           
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 2 | The V Taper Masterclass ( Targeting The Right Muscles )</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;Build a killer V-taper that makes girls stare when you take your shirt off&rdquo;</li>
+                        <li>&ldquo;Shoulders so broad girls lean in when you talk&rdquo;</li>
+                        <li>&ldquo;Lats that scream ‘touch me’ without saying a word&rdquo;</li>
+                        <li>&ldquo;Why most fighters’ physiques look like coat hangers (and how to fix it)&rdquo;</li>
+                        
+                        
+                     
+                    </ul></p>
+                </div>
+            </div>
+
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 3 | The Only Type of Exercise That Matter</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;Stealth muscle: Grow size that doesn’t slow your kicks/punches&rdquo;</li>
+                        <li>&ldquo;Chest exercises that pop through shirts (without sacrificing speed)&rdquo;</li>
+                        <li>&ldquo;Back workouts that turn heads at the beach AND help you slam opponents&rdquo;</li>
+                        
+                     
+                    </ul></p>
+                </div>
+            </div>
+
+
+           
+
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 4 | Calisthenics vs. Weights: For The Fighters</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li class="core-training-point">&ldquo;Build a beach-ready V-taper (broad shoulders, narrow waist) without slowing your punches or kicks.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Explode like a fighter, look like a superhero: When calisthenics add speed vs. when weights add size.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Look shredded in 8 weeks &mdash; not bulky &mdash; so girls stare at the beach, not your opponent in the ring.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Agility of a ninja + chest that pops: Bodyweight tricks to stay light but look jacked.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Lift weights without getting &lsquo;slow&rsquo;: The 3 exercises that build muscle BUT keep you lethal.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Steal the &lsquo;Hollywood action hero&rsquo; workout: Train 3x/week, look like you fight 24/7.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Why skinny fighters get ignored (and how to fix it): The exact mix of weights + calisthenics for a &lsquo;don&rsquo;t mess with me&rsquo; body.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;Get a back that turns heads at the beach AND lets you slam opponents in the cage.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;How to train like Bruce Lee (not a bodybuilder): Combine calisthenics + weights for stealth muscle that shocks girls and opponents.&rdquo;</li>  
+                        <li class="core-training-point">&ldquo;The &lsquo;secret&rsquo; pro fighters use: Lift weights 2 days a week to look hot, train bodyweight 3 days to stay dangerous.&rdquo;</li>  
+                        
+                     
+                    </ul></p>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 5 | Sets , Reps , Rest + The Golden Method </button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;The secret rep scheme to get jacked in 8 weeks (without getting slow)&rdquo;</li>
+                        <li>&ldquo;Rest like a fighter, grow like a bodybuilder: Timing is everything&rdquo;</li>
+                        <li>&ldquo;Look jacked without moving like a tank: Recovery hacks pros use&rdquo;</li>
+                     
+                    </ul></p>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 6 | Recover Like a Nurmagomedov</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;Wake up looking shredded even after 3AM training sessions&rdquo;</li>
+      <li>&ldquo;Russian recovery secrets for muscle that pops 24/7&rdquo;</li>
+      <li>&ldquo;Fight night energy every day: Sleep hacks for hungry fighters&rdquo;</li>
+                      
+                     
+                    </ul></p>
+                </div>
+            </div>
+            <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 7 | Eating Intentionally Like a Man</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>Eat like a fighter who wants to be seen, not just survive
+                            <li>&ldquo;Eat like a warrior, look like a god: Food rules for fighters who want attention&rdquo;</li>
+                            <li>&ldquo;Abs that show even when you’re NOT flexing (eat these 3 things daily)&rdquo;</li>
+                            <li>&ldquo;Cheat meals that boost testosterone, not belly fat&rdquo;</li>
+                     
+                    </ul></p>
+                </div>
+            </div>
+             <div class="dropdown-item">
+                <button class="dropdown-trigger">Chapter 8 | What To Do If You Have an Upcoming Fight</button>
+                <div class="dropdown-content">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;Look intimidating at weigh-ins: Last week tricks to make veins pop&rdquo;</li>
+                        <li>&ldquo;Fight camp dieting without looking flat/small&rdquo;</li>
+                        <li>&ldquo;How to balance ‘looking dangerous’ with actually being dangerous&rdquo;</li>
+                       
+                     
+                    </ul></p>
+                </div> 
+            </div>
+            <div class="dropdown-item bonus">
+                <button class="dropdown-trigger bonus">Bonus Chapter 1 | The Attraction Factor</button>
+                <div class="dropdown-content bonus">
+                    <p>  <ul class="chapter-sub">
+                       
+      <li>&ldquo;The exact muscle to fat ratio that triggers female attention&rdquo;</li>
+      <li>&ldquo;How to make girls ‘accidentally’ touch your arms&rdquo;</li>
+                     
+                    </ul></p>
+                </div>
+            </div>
+            <div class="dropdown-item bonus">
+                <button class="dropdown-trigger bonus">Bonus Chapter 2 | Style & Energy to Match the Muscle
+                </button>
+                <div class="dropdown-content bonus">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;Dress like you’re worth staring at (without looking try-hard)&rdquo;</li>
+                        <li>&ldquo;Walk into rooms like you own them: Fighter posture secrets&rdquo;</li>
+                        <li>&ldquo;Voice tricks that make girls lean closer&rdquo;</li>
+                     
+                    </ul></p>
+                </div>
+            </div>
+            <div class="dropdown-item bonus">
+                <button class="dropdown-trigger bonus">Bonus Chapter 3 | Testosterone Mastery
+                </button>
+                <div class="dropdown-content bonus">
+                    <p>  <ul class="chapter-sub">
+                        <li>&ldquo;The 3-minute morning routine that keeps you hard and lean&rdquo;</li>
+                        <li>&ldquo;Supplements that actually work (not the gym-bro BS)&rdquo;</li>
+                        <li>Feel aggressive, sharp, and on point all the time</li>
+                        <li>Turn on the kind of energy that makes people step aside</li>
+                     
+                    </ul></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section 4 -->
+    <section class="value-section">
+        <h2>What You'll Get</h2>
+        <ul class="checklist">
+            <li>Full Lifetime Access to This Course & All Its Content</li>
+            <li>Knowledge No One Likes To Talk About</li>
+            <li>Weekly Live Coaching Sessions With Me</li>
+            <li>Downloadable PDF Guide For Everything In Course + Bonus Ebook</li>
+            <li>Brotherhood</li>
+            <li>Responsive Anti-Gatekeeping Community</li>
+            <li>Daily Texting With Me To See How Everything is going</li>
+            <div class="value"> <span class="value">$379 Value</span></div>
+        </ul>
+        
+        <div class="price-container">
+          
+            <div class="original-price old-price">Original: $97</div> 
+            <div class="sale-price">Pre-Sale: <span class="sale-price-span">$49</span></div>
+        </div>
+        
+        <a href="payment.html" class="cta-btn cta-button">Get Instant Access</a>
+    </section>
+
+    <section class="gladiator-section">
+        <div class="container">
+            <h2 class="headline">Now Imagine If..</h2>
+            <!-- <p class="subhead">Crush Your Friend, Own the Summer, Become a Walking DM Apocalypse</p> --> <br> <br>
+    <hr style="width: 60vh; border-color: var(--primary); text-align: center; filter: blur(5px); justify-self: center;"> <br> <br> <br>
+            <div class="content-block scenario">
+             imagine You made a <em>bet</em> in front of the girls. with your Friend, on who will get the most Aesthetic physique by Next summer, and you were offered this &#8595 Below. for the price of your trainers
+            </div>
+    
+            <div class="content-block weapons">
+                <h3>Your Secret Weapons:</h3>
+                <ol class="features-list">
+                    <li>
+                        <span class="feature-number">1</span>
+
+                        <div class="txt">
+                            <strong>The “FAFO” Masterclass:</strong>  
+                            <p> No fluff. No “maybe do curls, bro.” A military-grade blueprint dissecting every atomic habit, nutrition hack, and muscle fiber trigger that actually transforms pencil necks into pantheon-tier physiques.</p> 
+                        </div>
+                       
+                      
+                    </li>
+                    <li>
+                        <span class="feature-number">2</span>
+                        <div class="txt">
+                            <strong>Weekly “No Bullsh*t” Coach Interrogations</strong>  
+                            <p> A coach who’ll dissect your week like the FBI and surgically fix every mistake. Ate a Pop Tart? They’ll know. Skipped a rep? They’ll smell it. No room for ego just results.</p> 
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-number">3</span>
+                        <div class="txt">
+                            <strong>Your DNA’s Gym Playlist</strong>  
+                            <p> A program so personalized, it factors in your sleep, stress, and that one knee that clicks when you squat. Your body’s not generic why train like it is?</p> 
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-number">4</span>
+                        <div class="txt">
+                            <strong>Form Police (No Mercy Division)</strong>  
+                            <p> Send a video of your lift. Within 24 hours, get roasted (lovingly) and corrected. No injuries. No wasted gains. Just crisp, DM-earning mechanics.</p> 
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-number">5</span>
+                        <div class="txt">
+                            <strong>24/7 Socrates Mode</strong>  
+                            <p> Military-grade blueprint for transforming pencil necks to pantheon-tier physiques</p> 
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-number">6</span>
+                        <div class="txt">
+                            <strong> The Brotherhood of Gainz Goblins</strong>  
+                            <p> A squad that’ll spam you with “STFU AND SQUAT” memes when you whine. They’ll remind you why losing isn’t an option… unless you want the girls to laugh at your “after” pic.</p> 
+                        </div>
+                    </li>
+                </ol>
+            </div>
+    
+      
+
+            <div style="border: 1px dashed green;" class="outcome-block">
+                <strong> <span style="color: green;" class="affirm">Outcome:</span> You’ll walk into that summer BBQ looking like you’re manufactured in a lab. whilst Your friend still does some arnold split and and rests 2 minutes, The girls? Forget the bet they’ll be too busy arguing over who slid into your DMs first.</strong>
+           </div>
+    
+            <div class="outcome-block">
+                 <strong> <span class="warn">Last Warning:</span>  Your friend’s probably Googling “how to get abs” right now. while you are genuinly one click away from weaponizing your revenge arc.</strong>
+            </div>
+    
+            <a href="payment.html" class="cta-button">Obtain Cheat Code →</a>
+       
+
+            <p class="disclaimer">P.S. If you chicken out, start practicing your apology speech. The girls love a good cringe story</p>
+        </div>
+    </section>
+    
+    <style>
+    .gladitor-section {
+        background: #0a0a0a;
+        color: #fff;
+        padding: 4rem 0;
+        font-family: 'Arial Black', sans-serif;
+    }
+    .outcome{
+        font-size: 1.32em;
+       
+        
+    }
+
+
+    .chapter-sub{
+        font-size: 1.3em;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+       
+    }
+
+    .warn{
+        color: red;
+    }
+    
+    .txt p{
+font-size: .9em;
+color: rgb(165, 165, 165);
+line-height: 37px;
+    }
+    .txt{
+        line-height: 40px;
+    }
+    .container {
+        width: 85%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .headline {
+        font-size: 2.8rem;
+        text-align: center;
+        color: var(--primary);
+        text-shadow: 0 0 15px var(--primary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .subhead {
+        text-align: center;
+        font-size: 1.5rem;
+        opacity: 0.9;
+        margin-bottom: 3rem;
+    }
+    
+    .content-block {
+        background: #1a1a1a00;
+        border: 1px dashed var(--primary);
+        border-radius: 15px;
+        padding: 3.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .features-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .features-list li {
+        padding: 1.2rem;
+        margin: 1rem 0;
+        background: #252525;
+        border-left: 4px solid var(--primary);
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+    }
+    
+    .feature-number {
+        color: var(--primary);
+        font-size: 1.4rem;
+        font-weight: bold;
+        min-width: 2rem;
+    }
+
+    .scenario{
+        font-size: 1.3em;
+    }
+    
+    .price-tag {
+        font-size: 1.8rem;
+        color: var(--primary);
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+    
+    .outcome-block {
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 2rem;
+        border: 2px dashed red;
+        margin: 2rem 0;
+        
+    }
+    
+    .cta-button {
+        display: block;
+        width: fit-content;
+        margin: 2rem auto;
+        padding: 1.2rem 3rem;
+        font-size: 1.3rem;
+        background: var(--primary);
+        color: black;
+        border-radius: 38px;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+
+        box-shadow: 0px 0px 15px var(--primary);
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    .cta-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px var(--primary);
+    }
+    
+    .disclaimer {
+        text-align: center;
+        opacity: 0.8;
+        font-size: 0.9rem;
+    }
+
+    .features-list{
+        list-style-type: disc;
+    }
+
+    .features-lis li{
+background-color: transparent;
+border: 0px;
+
+    }
+
+
+
+/* Responsive Additions */
+@media (max-width: 1200px) {
+    .features img {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-header {
+        font-size: 2rem;
+    }
+
+    .features {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .features img {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+    }
+
+    .features-list {
+        font-size: 1.4rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .video-container {
+        margin: 1rem 0;
+    }
+
+    
+
+    .cta-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .features-list {
+        font-size: 1.2rem;
+        line-height: 2;
+    }
+
+    .headline {
+        font-size: 2rem;
+    }
+
+    .subhead {
+        font-size: 1.2rem;
+    }
+
+    .content-block {
+        padding: 1rem;
+        
+    }
+
+    .features-list li {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .feature-number {
+        margin-bottom: 0.5rem;
+    }
+
+    .dropdown-trigger {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .price-container {
+        font-size: 1.2rem;
+    }
+
+    .checklist li {
+        font-size: 1rem;
+    }
+
+    .outcome-block {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .container{
+        min-width: 90vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-header {
+        font-size: 1.5rem;
+    }
+
+    .features-list {
+        font-size: 1rem;
+    }
+
+    .headline {
+        font-size: 1.8rem;
+    }
+
+    .subhead {
+        font-size: 1rem;
+    }
+
+    .dropdown-trigger {
+        font-size: 0.9rem;
+        padding-right: 35px;
+    }
+
+    .dropdown-trigger::after {
+        right: 15px;
+    }
+
+    .content-block.scenario {
+        font-size: 0.9rem;
+    }
+
+    .txt p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    
+
+    .outcome {
+        font-size: 1rem;
+    }
+
+    .disclaimer {
+        font-size: 0.8rem;
+    }
+
+    .blurred-bg {
+        display: none; /* Better mobile performance */
+    }
+}
+
+
+/* Existing CSS remains the same */
+</style>
+    </style>
+
+    <style>
+        .features-lis li{
+background-color: transparent;
+border: 0px;
+list-style: disc;
+    }
+
+    .active .dropdown-content {
+    max-height: 400px;
+    padding: 1.5rem;
+}
+
+.blurred-bg{
+    background-color: var(--primary);
+    filter: blur(200px);
+}
+    </style>
+    <script>
+        // Dropdown functionality
+        document.querySelectorAll('.dropdown-trigger').forEach(button => {
+            button.addEventListener('click', () => {
+                const parent = button.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Add dynamic blurred elements
+        // function createBlurredElements() {
+        //     const sections = document.querySelectorAll('section');
+        //     sections.forEach(section => {
+        //         const blurred = document.createElement('div');
+        //         blurred.className = 'blurred-bg';
+        //         blurred.style.left = Math.random() * 100 + '%';
+        //         blurred.style.top = Math.random() * 100 + '%';
+        //         section.appendChild(blurred);
+        //     });
+        // }
+        // createBlurredElements();
+    </script>
+</body>
+</html>
